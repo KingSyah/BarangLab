@@ -117,8 +117,13 @@ function categorise(row) {
 /* ── Peminjaman status detector ── */
 // Returns: 'belum' | 'kembali'
 function returnStatus(row) {
-  const ket = (col(row,'Keterangan Tambahan','Keterangan')||'').toLowerCase();
-  const returned = ['sudah kembali','dikembalikan','telah kembali','sudah dikembalikan','kembali','returned','selesai'];
+  const ket = (col(row,'Keterangan Tambahan','Keterangan')||'').toLowerCase().trim();
+  if (!ket) return 'belum';
+  // Cek kata penolak dulu — "belum kembali", "belum dikembalikan", dll
+  const notYet = ['belum kembali','belum dikembalikan','belum','not yet','masih dipinjam','sedang dipinjam'];
+  if (notYet.some(k => ket.includes(k))) return 'belum';
+  // Baru cek sudah kembali
+  const returned = ['sudah kembali','sudah dikembalikan','telah kembali','telah dikembalikan','dikembalikan','returned','selesai'];
   if (returned.some(k => ket.includes(k))) return 'kembali';
   return 'belum';
 }
