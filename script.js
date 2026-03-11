@@ -6,7 +6,7 @@
    ============================================= */
 
 const CSV_URL   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSwsye1WiUetZ5uSo-TqBKKjgk8y3J0ZWUZKAN25T7i-UgLQeNqmI5AHY4Xxa3aHBVMNhOnhlokAMwj/pub?gid=459706998&single=true&output=csv';
-const FORM_URL  = 'https://docs.google.com/forms/d/e/1FAIpQLSemwwYZyEB0MGCLYaUr8Deyid8qj0PVLKcAVbSf8gTKDt_KOA/viewform';
+const FORM_URL  = 'https://kingsyah.codeberg.page/lok1/form2.html';
 const PAGE_SIZE = 15;
 
 let allData      = [];
